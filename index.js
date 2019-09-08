@@ -11,9 +11,6 @@ var uristring = process.env.MONGODB_URI || 'mongodb://localhost/HelloMongoose';
 mongoose.connect(uristring, { useNewUrlParser: true });
 var db = mongoose.connection;
 
-var index = require('./routes/index');
-var users = require('./routes/users');
-
 // Init App
 var app = express();
 
@@ -51,6 +48,9 @@ app.use(function (req, res, next) {
   res.locals.user = req.user || null;
   next();
 });
+
+var index = require('./routes/index');
+var users = require('./routes/users');
 
 app.use('/', index);
 app.use('/users', users);

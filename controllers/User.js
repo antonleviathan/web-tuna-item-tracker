@@ -1,6 +1,5 @@
 var bcrypt = require('bcryptjs');
 const UserModel = require('../models/User');
-const UserController = require('../controllers/User')
 
 module.exports.create = function(newUser, callback){
 	bcrypt.genSalt(10, function(err, salt) {
